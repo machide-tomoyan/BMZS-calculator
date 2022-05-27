@@ -1,3 +1,3 @@
 onDebug       = True
-numberProcess = 40
+numberProcess = 24
 dataDir       = ../Data/
