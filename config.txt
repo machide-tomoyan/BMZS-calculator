@@ -1,0 +1,3 @@
+onDebug       = True
+numberProcess = 40
+dataDir       = ../Data/
