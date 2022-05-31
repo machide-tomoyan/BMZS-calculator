@@ -2,7 +2,7 @@
  
 # Introduction
 
-This package targets the formal multiple zeta space spanned by formal symbols Z(a,b,c,...).
+This package is used for the experiments in the preprint (https://arxiv.org/abs/2205.13751), and targets the formal multiple zeta space spanned by formal symbols Z(a,b,c,...).
 The symbols are binary (or mod 2) analogs to the shuffle-type regularized multiple zeta values (MZVs).
 We call it the binary multiple zeta symbol or the binary MZS.
 More precisely, for a weight,
