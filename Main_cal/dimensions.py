@@ -108,8 +108,11 @@ def main(fle_bys, onVB, wgt, tag_add=""):
         print("II: Vrbs,Rels,ave_Vrbs,(onVB,wgt) =", len(vrbs_bys),len(rels),round(float(sum([ len(rel) for rel in rels ]))/len(rels),3),(onVB,wgt))
         #KK? if ONMZS and wgt > 0:     print("  : dims_cnj =", dims_cnj)
     # - get vrbKinds
-    with open(fld_W+"noKinds.pkl","rb") as f:                  noKinds  = pickle.load(f)
-    vrbKinds = { no:ind for no,ind in noKinds.items() if ind[0] > 1 }
+    if ONMZS and wgt > 0:
+        with open(fld_W+"noKinds.pkl","rb") as f:                  noKinds  = pickle.load(f)
+        vrbKinds = { no:ind for no,ind in noKinds.items() if ind[0] > 1 }
+    else:
+        vrbKinds = dict()
     # -----
     # - cal vrbKodrs
     if onVB:    print(" @S: cal vrbKodrs ...", end=" ");  tmS = time.time();
@@ -133,7 +136,7 @@ def main(fle_bys, onVB, wgt, tag_add=""):
         dvrbsS_cal = [set()] + [ bnoKdvrbsS[bno] for bno in bnos7 ] + [set()]
     # - dump if ...
     if onVB:    print(" @S: dump vrbKrels_utr", end="");  tmS = time.time()
-    if onVB:
+    if onVB and wgt > 0:
         fld = fld_W + "Rslt/"
         fle_vrbKrels = "vrbKrels_utr_"+tag_add+".pkl" if len(tag_add)>0 else "vrbKrels_utr.pkl"
         fle_vdr      = "vdr_utr_"+tag_add+".pkl"      if len(tag_add)>0 else "vdr_utr.pkl"
@@ -171,7 +174,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="This file calculates the rank of bys (binary linear system) inputted.")
     parser.add_argument("bys", help="Input file of bys (binary system).")
     parser.add_argument("-v",  help="Verbose mode (default:False).", action='store_true')
-    parser.add_argument("-w",  help="Weight of binary MZSs (default:0); this is for the case that bys file is created by binary EDS relations.", default=0)
+    parser.add_argument("-w",  help="Weight of binary MZSs (default:0); this is for the case that bys file is created by binary EDS relations.", default=1)
     parser.add_argument("--tag",  help="Additional tag-word for the file ../Data/Wkk/mdlKhmss.txt; this is available if -w is specified.", default="")
     ##CO parser.add_argument("--offMZS",  help="For test", action='store_false')     #:for test. Please comment out lastly
     # -- get args
