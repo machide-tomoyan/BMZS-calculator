@@ -6,7 +6,7 @@ This package is used for the experiments in the preprint (https://arxiv.org/abs/
 The symbols are binary (or mod 2) analogs to the shuffle-type regularized multiple zeta values (MZVs).
 We call it the binary multiple zeta symbol or the binary MZS.
 More precisely, for a weight,
-- This makes a part of extended double shuffle relations of shuffle type for the original multiple zeta values, whose coefficients are induced by modulo 2;
+- This makes extended double shuffle relations of shuffle type for the original multiple zeta values, whose coefficients are induced by modulo 2;
 - This calculates generators and dimensions of the formal space and the graded formal spaces filtered by depth.
 
 Note that we use the descending order for the definition as follows, where zeta(a,b,c,...) stands for original zeta values.
