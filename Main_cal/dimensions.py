@@ -103,7 +103,7 @@ def main(fle_bys, onVB, wgt, tag_add=""):
     if onVB:    print(" : (tm:"+ws.stg_hms(time.time()-tmS)+", "+ws.stg_rss(rss)+")");
     # - info if ...
     if onVB:    
-        dims_cnj = ws.dims(wgt,FLD_data,knd="cnj") if wgt > 0 else list()
+        dims_cnj = ws.dims(wgt,FLD_data,knd="cnj") if wgt > 1 else list()
         vrbs_bys = { vrb for rel in rels for vrb in rel }
         print("II: Vrbs,Rels,ave_Vrbs,(onVB,wgt) =", len(vrbs_bys),len(rels),round(float(sum([ len(rel) for rel in rels ]))/len(rels),3),(onVB,wgt))
         #KK? if ONMZS and wgt > 0:     print("  : dims_cnj =", dims_cnj)
